@@ -1,26 +1,5 @@
 #!/usr/bin/env python3
 
-import math
-
-#math.pi
-#math.e
-
-message = raw_input("Enter the message")
-
-message_length = len(message)
-
-key = calcPi(message_length)
-
-
-
-
-
-
-
-
-
-
-
 
 # Following Code to calculate digits of Pi was written by 
 #"Balazs Rostas : MrBlaise"
@@ -47,9 +26,6 @@ def calcPi(limit):  # Generator function
             # yield digit
             yield n
             # insert period after first digit
-            if counter == 0:
-                    yield '.'
-            # end
             if decimal == counter:
                     print('')
                     break
@@ -67,3 +43,16 @@ def calcPi(limit):  # Generator function
             k += 1
             n = nn
             r = nr
+
+
+def encrypt():
+
+    message = raw_input("Enter the message : ")
+    message_length = len(message)
+
+    key = calcPi(message_length)
+
+    for digit in key: 
+        print digit
+
+    #print(key)
