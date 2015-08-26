@@ -1,5 +1,7 @@
 #!/usr/bin/env python3
 
+import string
+import random
 
 # Following Code to calculate digits of Pi was written by 
 #"Balazs Rostas : MrBlaise"
@@ -8,7 +10,6 @@
 # Find PI to the Nth Digit
 # Have the user enter a number 'n'
 # and print out PI to the 'n'th digit
-
 
 def calcPi(limit):  # Generator function
     """
@@ -44,15 +45,21 @@ def calcPi(limit):  # Generator function
             n = nn
             r = nr
 
-
-def encrypt():
-
+def encrypt() :
     message = raw_input("Enter the message : ")
     message_length = len(message)
 
-    key = calcPi(message_length)
+    key = calcPi(message_length-1)
 
-    for digit in key: 
-        print digit
+    message_index = 0
+    encrypt_message = []
 
-    #print(key)
+    for digit in key:
+        index = 0
+        while (index < digit) :
+            encrypt_message.append(random.choice(string.printable))
+            index += 1
+        encrypt_message.append(message[message_index])
+        message_index += 1
+
+    print ''.join(encrypt_message)
