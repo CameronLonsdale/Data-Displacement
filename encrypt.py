@@ -4,6 +4,9 @@ from pi_extension import calcPi
 import string
 import random
 
+# no new line support as of yet
+printables = string.ascii_uppercase + string.digits + " " + string.punctuation
+
 def encrypt() :
     message = input()
     message_length = len(message)
@@ -15,7 +18,7 @@ def encrypt() :
         if message_index > message_length-1 : break
         index = 0
         while (index < digit) :
-            encrypt_message.append(random.choice(string.printable))
+            encrypt_message.append(random.choice(printables))
             index += 1
         encrypt_message.append(message[message_index])
         message_index += 1
