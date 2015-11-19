@@ -12,7 +12,7 @@ For example, the text 'test' would be masked into this form
 The X's correspond to a randomly chosen dummy character.
 As you can see, the number of X's between the plaintext corresponds to
 
-XXXtXeXXXXsX```
+XXXtXeXXXXsX
 
 3   1  4   1.. 
 
