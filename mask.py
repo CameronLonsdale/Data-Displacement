@@ -1,6 +1,6 @@
 #!/usr/bin/python3
 
-""" Mask or Unmask text from STDIN using the displacement method"""
+# Mask or Unmask text from STDIN using the displacement method
 
 import sys
 import string
@@ -8,9 +8,9 @@ import random
 import argparse
 from pi_extension import calc_pi
 
+# Evaluate arguments and either Mask or Unmask
+# 
 def main():
-    """ Evaluate arguments and either Mask or Unmask"""
-
     # Command Line Arguments
     parser = argparse.ArgumentParser(
         description='Data Masking using Displacement.')
@@ -25,47 +25,42 @@ def main():
     else: 
         unmask(key)
 
-
+# Apply mask on STDIN line by line and print
+#
 def mask(key):
-    """ apply mask on stdin line by line and print"""
-
-    # line by line encryption
+    # Line by line masking
     for line in sys.stdin.readlines():
         length = len(line)
-        index = 0
+        line_index = 0
         encrypt_message = []
 
-        # loop through key
         for digit in key:
-            if index > length-1: break
+            if line_index > length-1: break
             # Append dummy letters
             for i in range(0, digit):
                 encrypt_message.append(random.choice(PRINTABLES))
 
             # Append letter from message
-            encrypt_message.append(line[index])
-            index += 1
+            encrypt_message.append(line[line_index])
+            line_index += 1
 
         sys.stdout.write(''.join(encrypt_message))
 
-
+# Unmask on STDIN line by line and print
+#
 def unmask(key):
-    """ unmask on stdin line by line and print"""
-
-    # line by line decryption
+    # Line by line unmasking
     for line in sys.stdin.readlines():
         length = len(line)
-        index = -1
+        line_index = -1
         plain_text = []
 
-        # loop through key
         for digit in key:
-            index += digit+1
-            if index > length-1: break
-            plain_text.append(line[index])
+            line_index += digit+1
+            if line_index > length-1: break
+            plain_text.append(line[line_index])
 
         sys.stdout.write(''.join(plain_text))
-
 
 # Main
 PRINTABLES = string.ascii_uppercase + string.digits + " " + string.punctuation
