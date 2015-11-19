@@ -7,7 +7,7 @@ Applying the mask consists of looping through digits of Pi and displacing a char
 
 For example, the text 'test' would be masked into this form 
 
-```XXXtXeXXXXsX```
+`XXXtXeXXXXsX`
 
 The X's correspond to a randomly chosen dummy character.
 As you can see, the number of X's between the plaintext corresponds to
@@ -24,18 +24,16 @@ Unmasking works in a similar way.
 #### Mask
 ```
 ./mask E
-test
-^D
-```
+test ^D
 dF"tGe@tC\s1tr]3:[
+```
 
 #### UnMask
 ```
 ./mask D
-dF"tGe@tC\s1tr]3:[
-^D
-```
+dF"tGe@tC\s1tr]3:[ ^D
 test
+```
 
 ### Usage
 ```
