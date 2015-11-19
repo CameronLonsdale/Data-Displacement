@@ -1,9 +1,9 @@
 # Data-Displacement
-Data obfuscation using displacement
+**Data obfuscation using displacement**
 
-This program takes text from STDIN line by line and either applies or removes a masks
+This program takes text from STDIN line by line and either applies or removes a mask.
 
-The mask consists of looping through digits of Pi and displacing a character by that digit.
+Applying the mask consists of looping through digits of Pi and displacing a character by that digit.
 
 For example, the text 'test' would be masked into this form 
 XXXtXeXXXXsX

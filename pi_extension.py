@@ -1,16 +1,19 @@
 # Following Code to calculate digits of Pi was written by 
-#"Balazs Rostas : MrBlaise"
-#https://github.com/MrBlaise/learnpython/blob/master/Numbers/pi.py
+# "Balazs Rostas : MrBlaise"
+# https://github.com/MrBlaise/learnpython/blob/master/Numbers/pi.py
+
 # Modified by Cameron Lonsdale
 
 # Find PI to the Nth Digit
 # Have the user enter a number 'n'
 # and print out PI to the 'n'th digit
 
-def calcPi():  # Generator function
-    #Prints out the digits of PI
-    #until it reaches the given limit
 
+# Generator function
+# Prints out the digits of PI
+# until it reaches the given limit
+#
+def calc_pi():  
     q, r, t, k, n, l = 1, 0, 1, 1, 3, 3
 
     while True:
