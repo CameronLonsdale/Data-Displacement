@@ -2,24 +2,22 @@
 
 from pi_extension import calcPi
 import string, random, sys
+import argparse
 
-# Main
-printables = string.ascii_uppercase + string.digits + " " + string.punctuation
+def main():
+    # Command Line Arguments
+    parser = argparse.ArgumentParser(description='Encrypt/Decrypt using the Data-Displacement method.')
+    parser.add_argument('action', type=str, choices=['E', 'D'], help='E for encryption\n or D for decryption')
+    #parser.add_argument('-key', type=str, choices=['p', 'e', 'c'], help='Key to use')
+    args = parser.parse_args()
+ 
+    key = calcPi()
+    if args.action == 'E': encrypt(key)
+    else: decrypt(key)
 
-for arg in sys.argv:
-    if arg == '-e':
-        # Use irrational e as key
-        key = 'e'
-    elif arg == '-m':
-        # Use the ascii message as key
-        key = 'm'
-    else:
-        # use Pi as key
-        key = calcPi()
-
-def encrypt():
+def encrypt(key):
     message = sys.stdin.readlines()
-    
+
     # line by line encryption
     for line in message:
         message_length = len(line)
@@ -38,4 +36,24 @@ def encrypt():
 
         sys.stdout.write(''.join(encrypt_message))
 
-encrypt()
+def decrypt(key) :
+    message = sys.stdin.readlines()
+
+    # line by line decryption
+    for line in message:
+        message_length = len(line)
+        message_index = -1
+        plain_text = []
+
+        # loop through key
+        for digit in key:
+            message_index += digit+1
+            if message_index > message_length-1 : break
+            plain_text.append(line[message_index])
+            
+        sys.stdout.write(''.join(plain_text))
+
+# Main
+printables = string.ascii_uppercase + string.digits + " " + string.punctuation
+if __name__ == '__main__':
+    main()
