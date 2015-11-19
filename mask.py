@@ -32,7 +32,7 @@ def mask(key):
     for line in sys.stdin.readlines():
         encrypt_message = ""
 
-        for char, digit in zip(line, key):
+        for char, digit in zip(line.rstrip('\n'), key):
             # Append dummy letters
             for i in range(digit):
                 encrypt_message += random.choice(PRINTABLES)
@@ -40,7 +40,7 @@ def mask(key):
             # Append letter from plain text
             encrypt_message += char
 
-        print(encrypt_message, end="")
+        print(encrypt_message)
 
 
 def unmask(key):
@@ -50,14 +50,16 @@ def unmask(key):
     for line in sys.stdin.readlines():
         line_index = -1
         plain_text = ""
+        line = line.rstrip('\n')
 
-        for digit in key:
-            # Extract correct character
-            line_index += digit + 1
-            if line_index > len(line) - 1: break
-            plain_text += line[line_index]
+        if line:
+            for digit in key:
+                # Extract correct character
+                line_index += digit + 1
+                plain_text += line[line_index]
+                if line_index >= len(line) - 1: break
 
-        print(plain_text, end="")
+        print(plain_text)
 
 
 PRINTABLES = string.ascii_letters + string.digits + " " + string.punctuation
