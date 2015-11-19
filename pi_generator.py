@@ -13,7 +13,7 @@
 # Prints out the digits of PI
 # until it reaches the given limit
 #
-def calc_pi():  
+def calc_pi():
     q, r, t, k, n, l = 1, 0, 1, 1, 3, 3
 
     while True:
