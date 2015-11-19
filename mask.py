@@ -6,7 +6,7 @@ import sys
 import string
 import random
 import argparse
-from pi_extension import calc_pi
+from pi_generator import calc_pi
 
 def main():
     """Evaluate arguments and either Mask or Unmask."""
