@@ -40,7 +40,7 @@ def mask(key):
             for i in range(0, digit):
                 encrypt_message.append(random.choice(PRINTABLES))
 
-            # Append letter from message
+            # Append letter from plain text
             encrypt_message.append(line[line_index])
             line_index += 1
 
@@ -56,13 +56,13 @@ def unmask(key):
         plain_text = []
 
         for digit in key:
+            # Extract correct character
             line_index += digit+1
             if line_index > length-1: break
             plain_text.append(line[line_index])
 
         sys.stdout.write(''.join(plain_text))
 
-# Main
-PRINTABLES = string.ascii_uppercase + string.digits + " " + string.punctuation
+PRINTABLES = string.ascii_letters + string.digits + " " + string.punctuation
 if __name__ == '__main__':
     main()
