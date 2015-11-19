@@ -14,11 +14,30 @@ As you can see, the number of X's between the plaintext corresponds to
 
 XXXtXeXXXXsX
 
-3   1  4   1.. 
+3   1  4   1
 
 This will continue indefinitely until all of the message has been masked.
 Unmasking works in a similar way.
 
+### Example
+
+#### Mask
+```
+./mask E
+test
+^D
+```
+dF"tGe@tC\s1tr]3:[
+
+#### UnMask
+```
+./mask D
+dF"tGe@tC\s1tr]3:[
+^D
+```
+test
+
+### Usage
 ```
 usage: mask.py [-h] {E,D}
 
